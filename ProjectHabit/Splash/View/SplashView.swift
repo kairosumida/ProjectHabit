@@ -29,7 +29,35 @@ struct SplashView: View {
         }
     }
 }
-
+struct LoadingView: View{
+    var body: some View {
+        ZStack{
+            Image("logo").resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(20)
+                .background(Color.red)
+                .ignoresSafeArea()
+        }
+    }
+}
+extension SplashView {
+    var loading: some View{
+        ZStack{
+            Image("logo").resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(20)
+                .background(Color.red)
+                .ignoresSafeArea()
+        }
+    }
+}
+extension SplashView {
+    func loadingView()-> some View{
+        ZStack{}
+    }
+}
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         SplashView(state: .loading)
