@@ -64,3 +64,16 @@ struct LoadingView: View{
   <h3>Criar uma rotina de espera por tempo</h3>
   <code>DispatchQueue.main.asyncAfter(deadline: .now()+3){//aqui é chamado depois de 3 seg}</code>
   
+  <h2>Aprendizados 3</h3>
+  <h3>Navegação entre telas</h3>
+  <p>Quem realiza a navegação é a ViewModel, mas geralmente por um botão da View. Por isso:</p>
+  <code>viewModel.generic2View()</code>
+  <p>esse codigo se encontra na view e é ele que chama o metodo generic2View q se encontra na viewModel</p>
+  <code>extension Generic1ViewModel{func generic2View() -> some View{return Generic1ViewRouter.makeGeneric2View()}}</code>
+  <p>esse codigo esta chamando a Generic1ViewRouter que tem a responsabilidade de fazer a rota para a nova view</p>
+  <code>enum Generic1ViewRouter{static func makeGeneric2View() -> some View{let viewModel = Generic2ViewModel()return Generic2View(viewModel: viewModel)}}</code>
+  
+  <h2>Bug 🤯</h2>
+  <h3>PreviewView não queria mais mostrar</h3>
+  <p>Possivel solução: BuildSettings -> Search -> "Architectures" -> Build Active Architecture Only</p>
+  <p>Resolveu porem não tenho ideia do que foi isso, detalhe que em cima, antes ficava a build para o celular(iphone13), e apos desativar e ativar o build ficou como Arm64</p>
