@@ -55,7 +55,15 @@ extension SplashView {
 }
 extension SplashView {
     func loadingView()-> some View{
-        ZStack{}
+        ZStack{
+            Image("logo").resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(20)
+                .background(Color.red)
+                .ignoresSafeArea()
+            
+        }
     }
 }
 struct SplashView_Previews: PreviewProvider {
