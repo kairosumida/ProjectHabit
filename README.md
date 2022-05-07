@@ -76,4 +76,4 @@ struct LoadingView: View{
   <h2>Bug 🤯</h2>
   <h3>PreviewView não queria mais mostrar</h3>
   <p>Possivel solução: BuildSettings -> Search -> "Architectures" -> Build Active Architecture Only</p>
-  <p>Resolveu porem não tenho ideia do que foi isso, detalhe que em cima antes ficava a build para o celular, e apos desativar e ativar o build ficou como Arm64</p>
+  <p>Resolveu porem não tenho ideia do que foi isso, detalhe que em cima, antes ficava a build para o celular(iphone13), e apos desativar e ativar o build ficou como Arm64</p>
