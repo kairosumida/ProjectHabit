@@ -19,7 +19,7 @@ Programa tem como objetivo estudar um fluxo entre telas
   <li>error</li>
 </ul>
 
-<h2>Aprendizados</h2>
+<h2>Aprendizados 1</h2>
 <p>Quebrando modelos de layouts para tornar o codigo mais limpo</p>
 <h3>Compartilhamento de objetos</h3>
 <h4>Usado quando queremos acessa-la de outros documentos </h4>
@@ -51,5 +51,16 @@ struct LoadingView: View{
 }
   </code>
   
-  </code>
+<h2>Aprendizados 2</h2>
+  <h3>MVVM</h3>
+  <h4>Model</h4>
+  <p>Onde os estados ficam armazenados</p>
+  <h4>View</h4>
+  <p>Todos os componentes visuais ficam aqui</p>
+  <h4>ViewModel</h4>
+  <p>Onde ocorre o processamento e alterações dos estados do programa</p>
+  
+  <h2>Tecnica</h2>
+  <h3>Criar uma rotina de espera por tempo</h3>
+  <code>DispatchQueue.main.asyncAfter(deadline: .now()+3){//aqui é chamado depois de 3 seg}</code>
   
