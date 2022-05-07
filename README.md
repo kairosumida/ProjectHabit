@@ -73,4 +73,7 @@ struct LoadingView: View{
   <p>esse codigo esta chamando a Generic1ViewRouter que tem a responsabilidade de fazer a rota para a nova view</p>
   <code>enum Generic1ViewRouter{static func makeGeneric2View() -> some View{let viewModel = Generic2ViewModel()return Generic2View(viewModel: viewModel)}}</code>
   
-  
+  <h2>Bug 🤯</h2>
+  <h3>PreviewView não queria mais mostrar</h3>
+  <p>Possivel solução: BuildSettings -> Search -> "Architectures" -> Build Active Architecture Only</p>
+  <p>Resolveu porem não tenho ideia do que foi isso, detalhe que em cima antes ficava a build para o celular, e apos desativar e ativar o build ficou como Arm64</p>
