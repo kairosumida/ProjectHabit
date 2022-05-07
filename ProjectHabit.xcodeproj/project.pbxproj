@@ -13,6 +13,9 @@
 		6B535A242825BBB400545CB3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A232825BBB400545CB3 /* SplashView.swift */; };
 		6B535A262825BC4300545CB3 /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A252825BC4300545CB3 /* SplashUIState.swift */; };
 		6B535A292826C20A00545CB3 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A282826C20A00545CB3 /* SplashViewModel.swift */; };
+		6B535A2F2826CDE400545CB3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A2E2826CDE400545CB3 /* SignInView.swift */; };
+		6B535A312826CE2E00545CB3 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A302826CE2E00545CB3 /* SignInViewModel.swift */; };
+		6B535A332826CEF500545CB3 /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A322826CEF500545CB3 /* SplashViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		6B535A232825BBB400545CB3 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		6B535A252825BC4300545CB3 /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
 		6B535A282826C20A00545CB3 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		6B535A2E2826CDE400545CB3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		6B535A302826CE2E00545CB3 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		6B535A322826CEF500545CB3 /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 		6B535A102825AD8A00545CB3 /* ProjectHabit */ = {
 			isa = PBXGroup;
 			children = (
+				6B535A2A2826CD7B00545CB3 /* SignIn */,
 				6B535A1F2825BB3800545CB3 /* Splash */,
 				6B535A112825AD8A00545CB3 /* ProjectHabitApp.swift */,
 				6B535A152825AD8B00545CB3 /* Assets.xcassets */,
@@ -101,8 +108,42 @@
 			isa = PBXGroup;
 			children = (
 				6B535A282826C20A00545CB3 /* SplashViewModel.swift */,
+				6B535A322826CEF500545CB3 /* SplashViewRouter.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6B535A2A2826CD7B00545CB3 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				6B535A2D2826CDA100545CB3 /* Model */,
+				6B535A2C2826CD9B00545CB3 /* View */,
+				6B535A2B2826CD8D00545CB3 /* ViewModel */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		6B535A2B2826CD8D00545CB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6B535A2C2826CD9B00545CB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B535A2E2826CDE400545CB3 /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B535A2D2826CDA100545CB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6B535A302826CE2E00545CB3 /* SignInViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +218,11 @@
 			files = (
 				6B535A262825BC4300545CB3 /* SplashUIState.swift in Sources */,
 				6B535A122825AD8A00545CB3 /* ProjectHabitApp.swift in Sources */,
+				6B535A312826CE2E00545CB3 /* SignInViewModel.swift in Sources */,
 				6B535A242825BBB400545CB3 /* SplashView.swift in Sources */,
 				6B535A292826C20A00545CB3 /* SplashViewModel.swift in Sources */,
+				6B535A332826CEF500545CB3 /* SplashViewRouter.swift in Sources */,
+				6B535A2F2826CDE400545CB3 /* SignInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

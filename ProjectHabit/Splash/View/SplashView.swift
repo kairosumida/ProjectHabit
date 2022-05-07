@@ -22,7 +22,7 @@ struct SplashView: View {
                         .ignoresSafeArea()
                 }
             case .goToSignInScreen:
-                Text("Carregar Tela de Login")
+                viewModel.signInView()
             case .goToHomeScreen:
                 Text("Carregar tela principal")
             case .error(let msg):
