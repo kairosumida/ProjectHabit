@@ -17,7 +17,8 @@ struct SignInView: View{
     var body: some View{
         ZStack{
             if case SignInUIState.goToHomeScreen = viewModel.uiState{
-                Text("Tela de Login")
+                viewModel.homeView()
+
             }else{
                 NavigationView {
                     ScrollView(showsIndicators: false){
@@ -39,7 +40,19 @@ struct SignInView: View{
                                 .font(Font.system(size: 16).bold())
                                 .padding(.top, 16)
                         }
+                        if case SignInUIState.error(let value) = viewModel.uiState{
+                            Text("").alert(isPresented: .constant(true)){
+                                Alert(title: Text("Habit"), message: Text(value), dismissButton: .default(Text("Ok")){
+                                    //Faz algo quando o alert some
+                                    })
+                                }
+                            }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.horizontal, 32)
+                    .background(.white)
+                    .navigationBarTitle("Login", displayMode: .inline)
+                    .navigationBarHidden(navigationHidden)
                 }.onAppear{
                     self.navigationHidden = true
                 }.onDisappear{

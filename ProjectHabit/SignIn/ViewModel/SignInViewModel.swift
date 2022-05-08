@@ -17,3 +17,8 @@ class SignInViewModel: ObservableObject{
             self.uiState = .goToHomeScreen
         }    }
 }
+extension SignInViewModel{
+    func homeView() ->some View{
+        return SignInViewRouter.makeHomeView()
+    }
+}
