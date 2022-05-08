@@ -15,32 +15,39 @@ struct SignInView: View{
     @State var action: Int? = 0
     @State var navigationHidden = true
     var body: some View{
-        NavigationView{
-            ScrollView(showsIndicators: false){
-                VStack(alignment: .center){
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(.horizontal,48)
+        ZStack{
+            if case SignInUIState.goToHomeScreen = viewModel.uiState{
+                Text("Tela de Login")
+            }else{
+                NavigationView {
+                    ScrollView(showsIndicators: false){
+                        VStack(alignment: .center){
+                            Image("logo")
+                                .resizable()
+                                .scaledToFit()
+                                .padding(.horizontal,48)
 
-                    Text("Login").foregroundColor(.orange)
-                        .font(Font.system(.title).bold())
-                        .padding(.bottom, 8)
-                    numberField
-                    passwordField
-                    enterButton
-                    registerLink
-                    Text("Copyright @YYY")
-                        .foregroundColor(Color.gray)
-                        .font(Font.system(size: 16).bold())
-                        .padding(.top, 16)
+                            Text("Login").foregroundColor(.orange)
+                                .font(Font.system(.title).bold())
+                                .padding(.bottom, 8)
+                            numberField
+                            passwordField
+                            enterButton
+                            registerLink
+                            Text("Copyright @YYY")
+                                .foregroundColor(Color.gray)
+                                .font(Font.system(size: 16).bold())
+                                .padding(.top, 16)
+                        }
+                    }
+                }.onAppear{
+                    self.navigationHidden = true
+                }.onDisappear{
+                    self.navigationHidden = false
                 }
             }
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, 32)
-            .background(Color.white)
-            .navigationBarTitle("Login", displayMode: .inline)
-            .navigationBarHidden(navigationHidden)
+        }
+       
     }
 }
 extension SignInView{
@@ -71,6 +78,7 @@ extension SignInView{
 extension SignInView{
     var enterButton: some View{
         Button("Entrar"){
+            viewModel.login(email: email, password: password)
             
         }
     }
