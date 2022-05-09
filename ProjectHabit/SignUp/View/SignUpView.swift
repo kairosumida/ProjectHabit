@@ -14,6 +14,7 @@ struct SignUpView: View{
     @State var phone = ""
     @State var document = ""
     @State var birthday = ""
+    @State var gender = Gender.male
     
     var body: some View{
         VStack(alignment: .leading, spacing: 8){
@@ -27,6 +28,7 @@ struct SignUpView: View{
             documentField
             phoneField
             birthdayField
+            genderPicker
             saveButton
         }
         
@@ -66,6 +68,15 @@ extension SignUpView{
     var birthdayField: some View{
         TextField("", text: $birthday)
             .border(.black)
+    }
+}
+extension SignUpView{
+    var genderPicker: some View{
+        Picker("Gender", selection: $gender){
+            ForEach(Gender.allCases, id: \.self){ value in Text(value.rawValue)
+                    .tag(value)
+            }
+        }.pickerStyle(SegmentedPickerStyle())
     }
 }
 extension SignUpView{
