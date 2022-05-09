@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View{
+    
+    @ObservedObject var viewModel: SignUpViewModel
     @State var fullName = ""
     @State var email = ""
     @State var password = ""
@@ -17,21 +19,33 @@ struct SignUpView: View{
     @State var gender = Gender.male
     
     var body: some View{
-        VStack(alignment: .leading, spacing: 8){
-            Text("cadastre")
-                .foregroundColor(.black)
-                .font(Font.system(.title).bold())
-                .padding(.bottom, 8)
-            
-            fullNameField
-            emailField
-            documentField
-            phoneField
-            birthdayField
-            genderPicker
-            saveButton
+        ZStack{
+            ScrollView{
+                VStack(alignment: .center){
+                    VStack(alignment: .leading, spacing: 8){
+                        Text("cadastre")
+                            .foregroundColor(.black)
+                            .font(Font.system(.title).bold())
+                            .padding(.bottom, 8)
+                        
+                        fullNameField
+                        emailField
+                        documentField
+                        phoneField
+                        birthdayField
+                        genderPicker
+                        saveButton
+                    }
+                }.padding(.horizontal, 8)
+            }.padding()
+            if case SignUpUIState.error(let value) = viewModel.uiState{
+                Text("").alert(isPresented: .constant(true)){
+                    Alert(title: Text("Habit"), message: Text(value), dismissButton: .default(Text("Ok")){
+                        //Faz algo quando o alert some
+                    })
+                }
+            }
         }
-        
     }
 }
 extension SignUpView{
@@ -82,8 +96,8 @@ extension SignUpView{
 extension SignUpView{
     var saveButton: some View{
         Button("Cadastrar"){
-            
-            
+            viewModel.signUp()
+            print("teste?")
         }
     }
 }
@@ -92,7 +106,7 @@ extension SignUpView{
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        SignUpView()
+        let viewModel = SignUpViewModel()
+        SignUpView(viewModel: viewModel)
     }
 }

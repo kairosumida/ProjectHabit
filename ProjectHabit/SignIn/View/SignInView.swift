@@ -74,7 +74,7 @@ extension SignInView{
                 
                 ZStack{
                     NavigationLink(
-                        destination: Text("Tela de Cadastro"),
+                        destination: viewModel.signUpView(),
                         tag: 1,
                         selection: $action,
                         label:{EmptyView()})
@@ -89,6 +89,7 @@ extension SignInView{
 }
 
 extension SignInView{
+    
     var enterButton: some View{
         Button("Entrar"){
             viewModel.login(email: email, password: password)
