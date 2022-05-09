@@ -77,3 +77,27 @@ struct LoadingView: View{
   <h3>PreviewView não queria mais mostrar</h3>
   <p>Possivel solução: BuildSettings -> Search -> "Architectures" -> Build Active Architecture Only</p>
   <p>Resolveu porem não tenho ideia do que foi isso, detalhe que em cima, antes ficava a build para o celular(iphone13), e apos desativar e ativar o build ficou como Arm64</p>
+  
+  <h2>Aprendizado 4</h>
+  <h3>Criando picker com varios elementos</h3>
+  <p>Primeiro tem que ter um enum Esse enum deve ser do tipo String(Se for um string), CaseIterable Identifiable</p>
+  <p>Coloca-se cada elemento com um nome interno e um externo("Usuario") e então cria-se uma variavel id: String{self.rawValue}</p>
+  <code>enum Gender: String, CaseIterable, Identifiable{
+    case male = "Masculino"
+    case female = "Feminino"
+    var id: String{
+      self.rawValue
+    }
+  }
+  </code>
+  <p> Agora é so criar o picker e passar. Não deve-se esquecer que precisa ter um valor selecionado inicialmente</p>
+  <p> Dentro do picker coloca-se um ForEach para listar todos os elementos</p>
+  <code>Picker("Gender", selection: $gender){
+    ForEach(Gender.allCases, id: \.self){ value in 
+      Text(value.rawValue)
+        .tag(value)
+    }
+   }
+  </code>
+  
+    
