@@ -6,10 +6,26 @@
 //
 
 import SwiftUI
+import Combine
 class SignInViewModel: ObservableObject{
     
     @Published var uiState: SignInUIState = .none
     
+    private var cancellable: AnyCancellable?
+    private let publisher = PassthroughSubject<Bool, Never>()
+    
+    init(){
+        cancellable = publisher.sink{
+            value in print("Usuario criado! Go home: \(value)")
+            
+            if value {
+                self.uiState = .goToHomeScreen
+            }
+        }
+    }
+    deinit{
+        cancellable?.cancel()
+    }
     func login(email: String, password: String){
         
         DispatchQueue.main.asyncAfter(deadline: .now()+3){
@@ -23,6 +39,6 @@ extension SignInViewModel{
     }
     
     func signUpView() -> some View{
-        return SignInViewRouter.makeSignUpView()
+        return SignInViewRouter.makeSignUpView(publisher: publisher)
     }
 }
