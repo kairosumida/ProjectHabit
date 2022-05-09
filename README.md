@@ -99,5 +99,6 @@ struct LoadingView: View{
     }
    }
   </code>
+  <p>Para mudar o estilo do picker é so colocar 'Picker'}.pickerStyle('Estilo')</p>
   
     
