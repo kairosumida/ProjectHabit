@@ -12,4 +12,8 @@ enum SignInViewRouter{
         let viewModel = HomeViewModel()
         return HomeView(viewModel: viewModel)
     }
+    
+    static func makeSignView()-> some View{
+        return SignUpView()
+    }
 }
