@@ -13,14 +13,21 @@ struct EditTextView: View{
     var keyboard: UIKeyboardType = .default
     var error: String? = nil
     var failure: Bool? = nil
-    
+    var isSecure: Bool = false
     var body: some View{
         VStack{
-            TextField(placeholder, text: $text)
+            if isSecure{
+            SecureField(placeholder, text: $text)
                 .foregroundColor(Color("textColor"))
                 .keyboardType(keyboard)
                 .textFieldStyle(CustomTextFieldStyle())
-               
+            }
+            else{
+                TextField(placeholder, text: $text)
+                    .foregroundColor(Color("textColor"))
+                    .keyboardType(keyboard)
+                    .textFieldStyle(CustomTextFieldStyle())
+            }
             
             if let error = error, !error.isEmpty, failure == true {
                 Text(error).foregroundColor(.red)

@@ -90,17 +90,18 @@ extension SignInView{
 extension SignInView{
     
     var enterButton: some View{
-        Button("Entrar"){
-            viewModel.login(email: email, password: password)
-            
-        }
+        LoadingButtonView(action: {viewModel.login(email: email, password: password)}, text: "Entrar", showProgress: self.viewModel.uiState == SignInUIState.loading, disabled: !email.isEmail() || password.count < 8)
     }
 }
 
 extension SignInView{
     var passwordField: some View{
-        SecureField("", text: $password)
-            .border(Color.orange)
+        EditTextView(placeholder: "Senha",
+                     text: $password,
+                     keyboard: .emailAddress,
+                     error: "Senha Inválida: Minimo de 8 caracteres",
+                     failure: password.count < 8,
+                     isSecure: true)
     }
 }
 
@@ -110,8 +111,7 @@ extension SignInView {
                      text: $email,
                      keyboard: .emailAddress,
                      error: "Email Inválido",
-                     failure: email.count < 5
-        )
+                     failure: !email.isEmail())
     }
 }
 struct SignInView_Previews: PreviewProvider {
