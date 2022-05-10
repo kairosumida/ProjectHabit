@@ -16,7 +16,7 @@ class SignInViewModel: ObservableObject{
     
     init(){
         cancellable = publisher.sink{
-            value in
+            value in print("Usuario criado! Go home: \(value)")
             
             if value {
                 self.uiState = .goToHomeScreen
