@@ -50,7 +50,6 @@ struct SignInView: View{
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.horizontal, 32)
-                    .background(.white)
                     .navigationBarTitle("Login", displayMode: .inline)
                     .navigationBarHidden(navigationHidden)
                 }.onAppear{
@@ -107,13 +106,22 @@ extension SignInView{
 
 extension SignInView {
     var numberField: some View{
-        TextField("", text: $email)
-            .border(Color.black)
+        EditTextView(placeholder: "E-mail",
+                     text: $email,
+                     keyboard: .emailAddress,
+                     error: "Email Inválido",
+                     failure: email.count < 5
+        )
     }
 }
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
+        ForEach(ColorScheme.allCases, id: \.self){ value in
         let viewModel = SignInViewModel()
         SignInView(viewModel: viewModel)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .previewDevice("IPhone 11")
+                .preferredColorScheme(value)
+        }
     }
 }
