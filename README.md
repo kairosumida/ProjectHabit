@@ -78,7 +78,7 @@ struct LoadingView: View{
   <p>Possivel solução: BuildSettings -> Search -> "Architectures" -> Build Active Architecture Only</p>
   <p>Resolveu porem não tenho ideia do que foi isso, detalhe que em cima, antes ficava a build para o celular(iphone13), e apos desativar e ativar o build ficou como Arm64</p>
   
-  <h2>Aprendizado 4</h>
+  <h2>Aprendizado 4</h2>
   <h3>Criando picker com varios elementos</h3>
   <p>Primeiro tem que ter um enum Esse enum deve ser do tipo String(Se for um string), CaseIterable Identifiable</p>
   <p>Coloca-se cada elemento com um nome interno e um externo("Usuario") e então cria-se uma variavel id: String{self.rawValue}</p>
@@ -101,4 +101,24 @@ struct LoadingView: View{
   </code>
   <p>Para mudar o estilo do picker é so colocar 'Picker'}.pickerStyle('Estilo')</p>
   
-    
+  <h2>Aprendizado 5</h2>
+  <h3>Callback para pagina inicial</h3>
+  <p>Quando temos uma pagina login e entramos em uma pagina de cadastro. Quando o cadastro é realizado gostariamos que fosse direcionado para a main page e não para o login. Por isso usamos uma callback para avisar a pagina de login</p>
+  <p>Cria-se uma variavel AnyCancellable? e instanciamos um callback <code>PassthroughSubject&ltBool, Never&gt </code> o bool representa osucesso e o never o erro</p>
+  <p>Atribuimos a variavel AnyCancellable? no construtor da classe</p>
+   <code> publisher.sink{
+            value in 
+            if value {
+                //faz tal coisa
+            } 
+     }
+  </code>
+  <p>E declaramos um destructor para que a callback se encerre caso essa pagina seja encerrada</p>
+  <code>
+    deinit{
+        cancellable?.cancel()
+    }
+  </code>
+  <p>Agora basta passar para o Router o publisher e declarar no router que tem um publisher. E depois passar para a tela(ViewModel) que o router chama o publisher</p>
+  <p>Na classe que recebe o publisher pelo router basta dar publisher.send(true) e a callback acontece</p>
+  
