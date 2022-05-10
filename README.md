@@ -135,3 +135,11 @@ struct LoadingView: View{
   <p>9 - É bom passar os parametros na ordem que está criado no arquivo, pois se passar em outra ordem, o compilador fala que está errado</p>
   </br>
   
+  <h2>Aprendizado 7 </h2>
+  <h3>Criando um asset</h3>
+  <p> 1 - Clique em assets</p>
+  <p> 2 - Clique no + em baixo</p>
+  <p> 3 - Escolha o tipo do asset a ser criado</p>
+  <p> 4 - Renomeie</p>
+  <p> 5 - Coloque as caracteristicas do asset criado</p>
+  <p> 6 - Chame em qualquer lugar do codigo o nome do asset criado(O que foi renomeado) dentro de "" (por exemplo: "CorQueEuCriei")</p>
