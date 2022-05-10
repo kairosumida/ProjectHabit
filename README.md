@@ -122,3 +122,16 @@ struct LoadingView: View{
   <p>Agora basta passar para o Router o publisher e declarar no router que tem um publisher. E depois passar para a tela(ViewModel) que o router chama o publisher</p>
   <p>Na classe que recebe o publisher pelo router basta dar publisher.send(true) e a callback acontece</p>
   
+  <h2>Aprendizado 6</h2>
+  <h3>Customização de componentes</h3>
+  <p>1 - Criamos uma pasta em Common chamada View</p>
+  <p>2 - Criamos um arquivo com o nome do elemento que iremos customizar (Ex: EditTextView)</p>
+  <p>3 - Importamos o SwiftUI</p>
+  <p>4 - Criamos a estrutura padrão com a struct e o body : some view</p>
+  <p>5 - Adicionamos o Preview para facilitar a visualização com o modo dark e o modo light</p>
+  <p>6 - Dentro do body: some View(){} temos que colocar o elemento que será customizado e nele ir agregando os codigos(Ex: TextField(placeholder: placeholder, text: texto)</p>
+  <p>7 - E ao lado do TextField(...). adicionamos os elementos que sao customizados<p/>
+  <p>8 - Agora é só chamar a struct criada em qualquer lugar do codigo(EditTextView) e passar os parametros necessarios.</p>
+  <p>9 - É bom passar os parametros na ordem que está criado no arquivo, pois se passar em outra ordem, o compilador fala que está errado</p>
+  </br>
+  
