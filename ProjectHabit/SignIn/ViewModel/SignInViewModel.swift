@@ -16,7 +16,6 @@ class SignInViewModel: ObservableObject{
     
     init(){
         cancellable = publisher.sink{
-            value in print("Usuario criado! Go home: \(value)")
             value in
             
             if value {
