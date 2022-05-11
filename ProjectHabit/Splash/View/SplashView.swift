@@ -18,7 +18,6 @@ struct SplashView: View {
                         .scaledToFit()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(20)
-                        .background(Color.red)
                         .ignoresSafeArea()
                 }
             case .goToSignInScreen:
@@ -31,30 +30,8 @@ struct SplashView: View {
         }.onAppear(perform: viewModel.onAppear)
     }
 }
-struct LoadingView: View{
-    var body: some View {
-        ZStack{
-            Image("logo").resizable()
-                .scaledToFit()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(20)
-                .background(Color.red)
-                .ignoresSafeArea()
-        }
-    }
-}
-extension SplashView {
-    var loading: some View{
-        ZStack{
-            Image("logo").resizable()
-                .scaledToFit()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .padding(20)
-                .background(Color.red)
-                .ignoresSafeArea()
-        }
-    }
-}
+
+
 extension SplashView {
     func loadingView(error: String? = nil)-> some View{
         ZStack{
@@ -62,7 +39,6 @@ extension SplashView {
                 .scaledToFit()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(20)
-                .background(Color.red)
                 .ignoresSafeArea()
             
             if let error = error{
@@ -77,7 +53,13 @@ extension SplashView {
 }
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = SplashViewModel()
-        SplashView(viewModel: viewModel)
+        ForEach(ColorScheme.allCases, id: \.self){ value in
+            let viewModel = SplashViewModel()
+            SplashView(viewModel: viewModel)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .previewDevice("IPhone 11")
+                .preferredColorScheme(value)
+        }
+        
     }
 }
