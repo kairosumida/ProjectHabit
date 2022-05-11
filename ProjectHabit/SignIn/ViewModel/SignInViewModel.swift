@@ -10,7 +10,8 @@ import Combine
 class SignInViewModel: ObservableObject{
     
     @Published var uiState: SignInUIState = .none
-    
+    @Published var email = ""
+    @Published var password = ""
     private var cancellable: AnyCancellable?
     private let publisher = PassthroughSubject<Bool, Never>()
     
@@ -26,7 +27,7 @@ class SignInViewModel: ObservableObject{
     deinit{
         cancellable?.cancel()
     }
-    func login(email: String, password: String){
+    func login(){
         
         DispatchQueue.main.asyncAfter(deadline: .now()+3){
             //aqui é chamado depois de 3 seg

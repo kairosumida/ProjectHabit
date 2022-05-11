@@ -10,13 +10,7 @@ import SwiftUI
 struct SignUpView: View{
     
     @ObservedObject var viewModel: SignUpViewModel
-    @State var fullName = ""
-    @State var email = ""
-    @State var password = ""
-    @State var phone = ""
-    @State var document = ""
-    @State var birthday = ""
-    @State var gender = Gender.male
+    
     
     var body: some View{
         ZStack{
@@ -51,61 +45,61 @@ struct SignUpView: View{
 extension SignUpView{
     var fullNameField: some View{
         EditTextView(placeholder: "Nome Completo",
-                     text: $fullName,
+                     text: $viewModel.fullName,
                      keyboard: .alphabet,
                      error: "Nome Inválido",
-                     failure: fullName.count < 3)
+                     failure: viewModel.fullName.count < 3)
     }
 }
 extension SignUpView{
     var emailField: some View{
         EditTextView(placeholder: "E-mail",
-                     text: $email,
+                     text: $viewModel.email,
                      keyboard: .emailAddress,
                      error: "Email Inválido",
-                     failure: !email.isEmail())
+                     failure: !viewModel.email.isEmail())
     }
 }
 extension SignUpView{
     var passwordField: some View{
         EditTextView(placeholder: "Senha",
-                     text: $password,
+                     text: $viewModel.password,
                      keyboard: .emailAddress,
                      error: "Senha Inválida: Minimo de 8 caracteres",
-                     failure: password.count < 8,
+                     failure: viewModel.password.count < 8,
                      isSecure: true)
     }
 }
 extension SignUpView{
     var phoneField: some View{
         EditTextView(placeholder: "Telefone",
-                     text: $phone,
+                     text: $viewModel.phone,
                      keyboard: .phonePad,
                      error: "Telefone inválido",
-                     failure: phone.count < 11)
+                     failure: viewModel.phone.count < 11)
     }
 }
 extension SignUpView{
     var documentField: some View{
         EditTextView(placeholder: "CPF",
-                     text: $document,
+                     text: $viewModel.document,
                      keyboard: .numberPad,
                      error: "CPF Inválido",
-                     failure: document.count < 11)
+                     failure: viewModel.document.count < 11)
     }
 }
 extension SignUpView{
     var birthdayField: some View{
         EditTextView(placeholder: "Aniversario",
-                     text: $birthday,
+                     text: $viewModel.birthday,
                      keyboard: .default,
                      error: "data Inválida",
-                     failure: birthday.count < 10)
+                     failure: viewModel.birthday.count < 10)
     }
 }
 extension SignUpView{
     var genderPicker: some View{
-        Picker("Gender", selection: $gender){
+        Picker("Gender", selection: $viewModel.gender){
             ForEach(Gender.allCases, id: \.self){ value in Text(value.rawValue)
                     .tag(value)
             }
@@ -115,12 +109,12 @@ extension SignUpView{
 extension SignUpView{
     var saveButton: some View{
         LoadingButtonView(action: {viewModel.signUp()},
-                          text: "Realize seu cadastro", showProgress: self.viewModel.uiState == SignUpUIState.loading,                    disabled: !email.isEmail() ||
-                          password.count < 8 ||
-                          phone.count < 10 || phone.count >= 12 ||
-                          document.count != 11 ||
-                          birthday.count != 10 ||
-                          fullName.count < 3
+                          text: "Realize seu cadastro", showProgress: self.viewModel.uiState == SignUpUIState.loading,                    disabled: !viewModel.email.isEmail() ||
+                          viewModel.password.count < 8 ||
+                          viewModel.phone.count < 10 || viewModel.phone.count >= 12 ||
+                          viewModel.document.count != 11 ||
+                          viewModel.birthday.count != 10 ||
+                          viewModel.fullName.count < 3
                           
         )
     }
