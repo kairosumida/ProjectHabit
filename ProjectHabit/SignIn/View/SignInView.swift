@@ -31,7 +31,7 @@ struct SignInView: View{
                             Text("Login").foregroundColor(.orange)
                                 .font(Font.system(.title).bold())
                                 .padding(.bottom, 8)
-                            numberField
+                            emailField
                             passwordField
                             enterButton
                             registerLink
@@ -106,7 +106,7 @@ extension SignInView{
 }
 
 extension SignInView {
-    var numberField: some View{
+    var emailField: some View{
         EditTextView(placeholder: "E-mail",
                      text: $email,
                      keyboard: .emailAddress,
