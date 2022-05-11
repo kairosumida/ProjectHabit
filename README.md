@@ -155,3 +155,18 @@ struct LoadingView: View{
   <p> 3 - Assim que a View for criada pegamos a variavel recem criada da viewModel e passamos como argumento na View</p>
   <p> 4 - Para adicionar variaveis, criamos dentro da ViewModel com a seguinte nomenclatura @Published var 'nomeDaVariavel'</p>
   <p> 5 - Na view basta passar viewModel.'nomeDaVariavel' ou se for um Biding $viewModel.'nomeDaVariavel'</p>
+
+<h2> Estudando componentes da view</h2>
+<h3> ZStack</h3>
+<p> Coloca um objeto na frente do outro sendo quanto mais abaixo do codigo, sobrescreve o item anterior. Também podemos dizer que se move no eixo Z</p>
+<h3> VStack </h3>
+<p> Coloca os objetos na vertical ou seja cada novo elemento vai aparecendo em baixo</p>
+<h3> HStack </h3>
+<p> Coloca os objetos na horizontal ou seja os elementos são colocado um ao lado do outro</p>
+<h3> ScrollView</h3>
+<p> Pode ter um parametro para remover a indicação nas laterais showsIndicator: false</p>
+<p> Serve para scrollar tudo que está dentro dele</p>
+<h3> NavigationView</h3>
+<p> Representa uma navegação entre views ou seja vai stakando views uma sobre a outra</p>
+<p> Para que nas outras paginas saiba o nome da sua view. Devemos colocar .navigationBarTitle("NomeDaView")</p>
+<p> Porem ao colocar o navigationBarTitle. Um titulo irá aparecer. E para faze-lo sumir usamos: .navigationBarHidden</p>
