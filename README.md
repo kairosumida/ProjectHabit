@@ -170,3 +170,5 @@ struct LoadingView: View{
 <p> Representa uma navegação entre views ou seja vai stakando views uma sobre a outra</p>
 <p> Para que nas outras paginas saiba o nome da sua view. Devemos colocar .navigationBarTitle("NomeDaView")</p>
 <p> Porem ao colocar o navigationBarTitle. Um titulo irá aparecer. E para faze-lo sumir usamos: .navigationBarHidden</p>
+<h3> Spacer</h3> 
+<p> Cria uma area vazia. Como se um objeto invisivel estivesse naquela região</p>
