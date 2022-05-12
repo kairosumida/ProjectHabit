@@ -172,3 +172,30 @@ struct LoadingView: View{
 <p> Porem ao colocar o navigationBarTitle. Um titulo irá aparecer. E para faze-lo sumir usamos: .navigationBarHidden</p>
 <h3> Spacer</h3> 
 <p> Cria uma area vazia. Como se um objeto invisivel estivesse naquela região</p>
+
+<h2> Estudando modificadores da view</h2>
+<h3> .padding()</h3>
+<p> Coloca para cada lado do objeto um espaço invisivel(Porem esse espaço ainda é o objeto) e se não tiver lugar para criar acredito que ele usa o proprio objeto para criar aquela area invisivel</p>
+<h3> .font('tipoDaFonte') </h3>
+<p>Escolhe uma fonte </p>
+<p>.font(Font.system(.title3)) Escolhe a fonte do sistema
+<h3> .resizable()</h3>
+<p>Força o objeto a expandir até o maximo que puder. Respeitando as areas de outros objetos. Por exemplo digamos que tenha uma tela de 1000 e 2 objetoc ocupam 100 cada. ou seja 800 está livre. Se der um risizable o objeto ira ocupar 900</p>
+<h3> .background('Color')</h3>
+<p>Escolhe uma cor de fundo</p>
+<h3>.frame(width: 'tamanho', height: 'tamanho')</h3>
+<p>Diz o tamanho que o elemento vai ter. Diferente do padding que o objeto pode ter qualquer tamanho e vai acrescentar uma quantia, aqui independente do tamanho, se usar o frame, o objeto terá aquele tamanho. Forçando ele a encolher, ou aumentar. Porem se aumentar ele aumenta com areas transparentes ao redor do objeto. Agora se o objeto for maior e tiver que reduzir ele fará proporcional</p>
+<h3>scaledToFit()</h3>
+<p>Força o objeto a caber na area(Sem deformar) onde esse objeto mantem a sua proporção original</p>
+<h3>foregroundColor('Color')</h3>
+<p>Faz o objeto que está dentro do elemento ganhar cor</p>
+<h3>.keyboardType('Keyboard')</h3>
+<p>Escolhe um tipo de teclado. Tem que ser em um elemento que abra o teclado para digitar</p>
+<h3>.textFieldStyle('Estilo')</h3>
+<p>Coloca um estilo no texto. O 'Estilo' Pode ser criado a parte em um customStyle</p>
+</h3>.cornerRadius</h3>
+<p>Faz o elemento ganhar arredondamento, cuidado se tiver um padding antes, o padding que ganha o arredondamento, deixando imperceptivel o arredondamento</p>
+<h3>.navigationBarTitle('Titulo')</h3>
+<p>Coloca um titulo na pagina que é uma navigation</p>
+<h3>.ignoresSafeArea()</h3>
+<p>Ignora a area de cima, onde mostra o relogio, bateria e etc</p>
