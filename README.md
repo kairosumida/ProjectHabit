@@ -185,9 +185,9 @@ struct LoadingView: View{
 <p>Escolhe uma cor de fundo</p>
 <h3>.frame(width: 'tamanho', height: 'tamanho')</h3>
 <p>Diz o tamanho que o elemento vai ter. Diferente do padding que o objeto pode ter qualquer tamanho e vai acrescentar uma quantia, aqui independente do tamanho, se usar o frame, o objeto terá aquele tamanho. Forçando ele a encolher, ou aumentar. Porem se aumentar ele aumenta com areas transparentes ao redor do objeto. Agora se o objeto for maior e tiver que reduzir ele fará proporcional</p>
-<h3>scaledToFit()</h3>
+<h3>.scaledToFit()</h3>
 <p>Força o objeto a caber na area(Sem deformar) onde esse objeto mantem a sua proporção original</p>
-<h3>foregroundColor('Color')</h3>
+<h3>.foregroundColor('Color')</h3>
 <p>Faz o objeto que está dentro do elemento ganhar cor</p>
 <h3>.keyboardType('Keyboard')</h3>
 <p>Escolhe um tipo de teclado. Tem que ser em um elemento que abra o teclado para digitar</p>
