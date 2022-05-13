@@ -23,33 +23,37 @@ Programa tem como objetivo estudar um fluxo entre telas
 <h3>Quebrando modelos de layouts para tornar o codigo mais limpo</p>
 <h4>Compartilhamento de objetos</h3>
 <p>Usado quando queremos acessa-la de outros documentos </h4>
-<code>
+```Swift
 struct LoadingView: View{
     var body: some View {
         ZStack{
         }
     }
 }
-  </code>
-<h4>Variaveis em extensões<h3>
-<p>Usado pelo documento atual, como uma extensao da struct SpashView, porem como é uma variavel. Não é possível passar parâmetros.</h4>
-  <code>extension SplashView {
+```
+<h3>Variaveis em extensões</h3>
+<p>Usado pelo documento atual, como uma extensao da struct SpashView, porem como é uma variavel. Não é possível passar parâmetros.</p>
+  ```Swift
+  extension SplashView {
+  extension SplashView {
     var loading: some View{
         ZStack{ 
         }
     }
 }
-  </code>
+  ```
+
   
   <h3>Função em extensão</h3>
   <h4>Usado pelo documento atual, e permite a passagem de parâmetros</h4>
-  <code>
-    extension SplashView {
-    func loadingView()-> some View{
-        ZStack{}
-    }
+
+ ```Swift
+  extension SplashView {
+  func loadingView()-> some View{
+      ZStack{}
+  }
 }
-  </code>
+ ```
   
 <h2>Aprendizados 2</h2>
   <h3>MVVM</h3>
@@ -101,7 +105,7 @@ struct LoadingView: View{
     }
    }
   </code>
-  <p>Para mudar o estilo do picker é so colocar 'Picker'}.pickerStyle('Estilo')</p>
+  <p>Para mudar o estilo do picker é so colocar Picker'}.pickerStyle('Estilo')</p>
   
   <h2>Aprendizado 5</h2>
   <h3>Callback para pagina inicial</h3>
