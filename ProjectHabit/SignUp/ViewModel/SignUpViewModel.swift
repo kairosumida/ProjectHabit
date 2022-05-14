@@ -19,12 +19,9 @@ class SignUpViewModel: ObservableObject{
     @Published var uiState: SignUpUIState = .none
     var publisher: PassthroughSubject<Bool, Never>!
     func signUp(){
+        self.uiState = .loading
+        WebService.postUser(fullName: fullName, email: email, document: document, phone: phone, gender: gender.index, birthday: birthday, password: password)
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+1){
-            //aqui é chamado depois de 3 seg
-            self.uiState = .error("Usuario ja cadastradp")
-            self.publisher.send(true)
-        }
     }
 }
 extension SignUpViewModel{

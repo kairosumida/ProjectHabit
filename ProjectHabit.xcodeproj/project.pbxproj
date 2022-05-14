@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B1F3D5B282A13F8007A7BD3 /* EditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1F3D5A282A13F8007A7BD3 /* EditTextView.swift */; };
 		6B1F3D5E282A239D007A7BD3 /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1F3D5D282A239D007A7BD3 /* CustomTextFieldStyle.swift */; };
+		6B3AE403283000A600869644 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3AE402283000A600869644 /* WebService.swift */; };
 		6B535A122825AD8A00545CB3 /* ProjectHabitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B535A112825AD8A00545CB3 /* ProjectHabitApp.swift */; };
 		6B535A162825AD8B00545CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B535A152825AD8B00545CB3 /* Assets.xcassets */; };
 		6B535A192825AD8B00545CB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B535A182825AD8B00545CB3 /* Preview Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		6B1F3D5A282A13F8007A7BD3 /* EditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextView.swift; sourceTree = "<group>"; };
 		6B1F3D5D282A239D007A7BD3 /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
+		6B3AE402283000A600869644 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		6B535A0E2825AD8A00545CB3 /* ProjectHabit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectHabit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B535A112825AD8A00545CB3 /* ProjectHabitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHabitApp.swift; sourceTree = "<group>"; };
 		6B535A152825AD8B00545CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 				6B1F3D5D282A239D007A7BD3 /* CustomTextFieldStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		6B3AE4012830009100869644 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6B3AE402283000A600869644 /* WebService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		6B535A052825AD8A00545CB3 = {
@@ -198,6 +208,7 @@
 		6B846F3728299842004244DD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				6B3AE4012830009100869644 /* Network */,
 				6BC49831282B286100AE5637 /* Lang */,
 				6B1F3D59282A13BD007A7BD3 /* View */,
 				6B846F382829984D004244DD /* Model */,
@@ -368,6 +379,7 @@
 				6BFBA3BE28283723008E3F51 /* HomeViewModel.swift in Sources */,
 				6BC1A1BB2828940C00C3FF48 /* SignUpView.swift in Sources */,
 				6B535A312826CE2E00545CB3 /* SignInViewModel.swift in Sources */,
+				6B3AE403283000A600869644 /* WebService.swift in Sources */,
 				6BFBA3C02828376E008E3F51 /* HomeView.swift in Sources */,
 				6B846F3E28299E30004244DD /* SignUpViewModel.swift in Sources */,
 				6B846F3C28299DFF004244DD /* SignUpUIState.swift in Sources */,

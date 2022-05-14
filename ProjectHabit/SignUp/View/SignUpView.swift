@@ -14,7 +14,7 @@ struct SignUpView: View{
     
     var body: some View{
         ZStack{
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 VStack(alignment: .center){
                     VStack(alignment: .leading, spacing: 8){
                         Text("cadastre")
@@ -23,6 +23,7 @@ struct SignUpView: View{
                             .padding(.bottom, 8)
                         
                         fullNameField
+                        passwordField
                         emailField
                         documentField
                         phoneField

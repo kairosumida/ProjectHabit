@@ -39,11 +39,11 @@ struct LoadingButtonView_Previews: PreviewProvider {
         ForEach(ColorScheme.allCases, id: \.self){ value in
             VStack{
                 LoadingButtonView(action: {
-                    
+                    print("ola mundo")
                 },
                                   text: "Entrar",
-                                  showProgress: true,
-                                  disabled: true)
+                                  showProgress: false,
+                                  disabled: false)
                 .padding()
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
                 .previewDevice("IPhone 11")
