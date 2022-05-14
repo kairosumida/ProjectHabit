@@ -203,3 +203,39 @@ struct LoadingView: View{
 <p>Coloca um titulo na pagina que é uma navigation</p>
 <h3>.ignoresSafeArea()</h3>
 <p>Ignora a area de cima, onde mostra o relogio, bateria e etc</p>
+<h1> Aprendizado 9 </h1>
+<h2>Convertendo em Json</h2>
+<p>Para converter uma lista dictionary criamos o dictionary com o nome de json e entao adicionamos em: </p>
+<code>let jsonData = try? JSONSerialization.data(withJSONObject: json)</code>
+<p> Pronto, o jsonData está pronto</p>
+ <h1>Aprendizado 10</h1>
+ <h2>Enviando para a web</h2>
+<p>1 Crie um enum chamado. WebService</p>
+<p>2 Crie um enum dentro de WebService chamado Endpoint do tipo String</p>
+<p>3 Adicione os casos ao Endpoint sendo o primeiro o base que contem o endereco do servidor</p>
+<p>4 Adicione os demais casos ao entipoint cada uma das possiveis rotas. Como cadastro, update, get e etc</p>
+<p>5 Crie um metodo estatico que irá completar a URL e retornar uma URLRequest</p>
+```Swift
+private static func completeUrl(path: Endpoint) -> URLRequest? {
+    guard let url = URL(string: "\(Endpoint.base.rawValue)\(path.rawValue)") else {return nil}
+
+            return URLRequest(url: url)
+}
+```
+<p>6. Crie um metodo que contem a ação que ele fará na nuvem(Ex: cadastrarUsuario)</p>
+<p>7. Crie o jsonData</p>
+<p>8. Crie uma urlRequest apartir do completeUrl</p>
+<p>9. passe os seguintes comandos</p>
+  ```swift
+  urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.httpBody = jsonData
+  ```
+<p>10. Espere pela task</p> 
+  ```Swift
+  let task = URLSession.shared.dataTask(with: urlRequest){
+            data, response, error in
+            }
+  ```
+ 
