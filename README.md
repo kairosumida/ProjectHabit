@@ -243,4 +243,34 @@ let task = URLSession.shared.dataTask(with: urlRequest){
           data, response, error in
           }
 ```
+ <h2>Bug</h2>
+ <h3>Type 'SignUpRequest' does not conform to protocol 'Encodable'</h3>
+ <p> Erro que apareceu por que o nome da variavel dentro da struct era diferente do nome que era esperado na estrutura de criação do Json </p>
+ 
+ ```Swift
+ struct SignUpRequest: Encodable {
+  let fullname: String
+  enum CodingKeys: String, CodingKey {
+    case fullName = "name"
+  }
+}
+ ```
+ <p>
+ O erro esta em fullname que é diferente de fullName
+ o que esta acontecendo é que ele busca a chave fullName e caso encontre diz p ela que deve-se chamar name. Porem fullName não existe, logo ele não encontra.
+ Uma solução que encontrei(Alem de corrigir o fullname para fullName) foi
+ </p>
+ 
+ ```Swift
+ struct SignUpRequest: Encodable {
+  let fullname: String
+  enum CodingKeys: String, CodingKey {
+    case fullName = "name"
+  }
+ func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fullName, forKey: .fullName)
+    }
+ }
+ ```
  
