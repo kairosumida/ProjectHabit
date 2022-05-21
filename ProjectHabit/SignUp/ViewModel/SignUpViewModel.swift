@@ -36,9 +36,16 @@ class SignUpViewModel: ObservableObject{
         let birthday = formatter.string(from: dateFormatted)
         WebService.postUser(request: SignUpRequest(fullName: fullName, email: email, password: password, document: document, phone: phone, birthday: birthday, gender: gender.index)) { (successResponse, errorResponse ) in
             if let error = errorResponse {
+                DispatchQueue.main.async {
                 self.uiState = .error(error.detail)
+                }
             }
-            
+            if let success = successResponse{
+                self.publisher.send(success)
+                if success{
+                    self.uiState = .success
+                }
+            }
         }
         
     }
