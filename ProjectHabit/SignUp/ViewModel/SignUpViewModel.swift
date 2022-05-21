@@ -41,9 +41,11 @@ class SignUpViewModel: ObservableObject{
                 }
             }
             if let success = successResponse{
-                self.publisher.send(success)
-                if success{
-                    self.uiState = .success
+                DispatchQueue.main.async {
+                    self.publisher.send(success)
+                    if success{
+                        self.uiState = .success
+                    }
                 }
             }
         }
