@@ -274,3 +274,10 @@ let task = URLSession.shared.dataTask(with: urlRequest){
  }
  ```
  
+ <h1>Aprendizado 11</h1>
+<h2>Multi Threading</h2>
+<p>Um dos problemas que são frequentes é que algumas vezes uma função acaba sendo execultada em uma thread que não é a principal. Porem coisas visuais da tela, precisa ser atualizada na Main Thread. Para isso usamo: </p>
+
+```Swift
+DispatchQueue.main.async { codigo }
+```
