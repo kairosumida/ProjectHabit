@@ -12,7 +12,7 @@ enum WebService{
     enum Endpoint: String{
         case base = "https://habitplus-api.tiagoaguiar.co"
         case postUser = "/users"
-        
+        case login = "/auth/login"
     }
     enum NetworkError{
         case badRequest
