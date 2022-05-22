@@ -104,7 +104,7 @@ enum WebService{
         }
         
     }
-    static func login(request: SignUpRequest, completion: @escaping (SignInResponse?, ErrorResponse?) -> Void){
+    static func login(request: SignInRequest, completion: @escaping (SignInResponse?, ErrorResponse?) -> Void){
         call(path: .postUser, params: [URLQueryItem(name: "username", value: request.email), URLQueryItem(name: "password", value: request.password)]){ result in
             switch result{
             case .failure(let error, let data):
@@ -119,7 +119,7 @@ enum WebService{
                 break
             case .success(let data):
                 let decoder = JSONDecoder()
-                let response = try? decoder.decode(SignUpResponse.self, from: data)
+                let response = try? decoder.decode(SignInResponse.self, from: data)
                 completion(response, nil)
                 
                 break

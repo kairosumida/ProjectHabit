@@ -28,7 +28,21 @@ class SignInViewModel: ObservableObject{
         cancellable?.cancel()
     }
     func login(){
-        WebService.login(request: SignInRequest(email: <#T##String#>, password: <#T##String#>)
+        self.uiState = .loading
+        WebService.login(request: SignInRequest(email: email, password: password)){(successResponse, errorResponse) in
+            if let error = errorResponse{
+                DispatchQueue.main.async {
+                    self.uiState = .error(error.detail)
+                    }
+                }
+            if let success = successResponse{
+                DispatchQueue.main.async {
+                    print(success)
+                    self.uiState = .goToHomeScreen
+                }
+            }
+            
+        }
     }
 }
 extension SignInViewModel{
