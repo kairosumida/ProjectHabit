@@ -24,7 +24,7 @@ enum WebService{
         case success(Data)
         case failure(NetworkError, Data?)
     }
-    enum ContentType{
+    enum ContentType : String {
         case json = "application/json"
         case formUrl = "application/x-www-form-urlencoded"
     }
@@ -52,6 +52,9 @@ enum WebService{
                 switch r.statusCode {
                 case 400:
                     completion(.failure(.badRequest, data))
+                    break
+                case 401:
+                    completion(.failure(.unauthorized, data))
                     break
                 case 200:
                     completion(.success(data))
@@ -106,7 +109,7 @@ enum WebService{
             switch result{
             case .failure(let error, let data):
                 if let data = data {
-                    if error == .badRequest{
+                    if error == .unauthorized{
                     
                     let decoder = JSONDecoder()
                     let response = try? decoder.decode(ErrorResponse.self, from: data)
@@ -115,8 +118,10 @@ enum WebService{
                 }
                 break
             case .success(let data):
-                completion(true, nil)
-                print(String(data: data, encoding: .utf8))
+                let decoder = JSONDecoder()
+                let response = try? decoder.decode(SignUpResponse.self, from: data)
+                completion(response, nil)
+                
                 break
             }
         }
