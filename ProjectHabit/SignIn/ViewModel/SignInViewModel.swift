@@ -28,11 +28,8 @@ class SignInViewModel: ObservableObject{
         cancellable?.cancel()
     }
     func login(){
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+3){
-            //aqui é chamado depois de 3 seg
-            self.uiState = .goToHomeScreen
-        }    }
+        WebService.login(request: SignInRequest(email: <#T##String#>, password: <#T##String#>)
+    }
 }
 extension SignInViewModel{
     func homeView() ->some View{
