@@ -32,7 +32,7 @@ class SignInViewModel: ObservableObject{
         WebService.login(request: SignInRequest(email: email, password: password)){(successResponse, errorResponse) in
             if let error = errorResponse{
                 DispatchQueue.main.async {
-                    self.uiState = .error(error.detail)
+                    self.uiState = .error(error.detail.message)
                     }
                 }
             if let success = successResponse{
